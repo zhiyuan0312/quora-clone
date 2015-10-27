@@ -1,2 +1,34 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<html lang="en">
+	<head>
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	  <title>Login Form</title>
+	<!--   <link rel="stylesheet" href="css/style.css"> -->
+	  <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	</head>
+	<body>
+	  <section class="container">
+	    <div class="login">
+	      <h1 id="login_title">Login to Quora Clone</h1>
+	      <form id method="post" action="/login">
+	        <p><input id="login_box" type="text" name="email" value="" placeholder="Username or Email"></p>
+	        <p><input id="login_box" type="password" name="password" value="" placeholder="Password"></p>
+	        <p class="submit"><input class="myButton" type="submit" name="commit" value="Login"></p>
+	      </form>
+	      <form method="get" action="/new_user">
+	     	 <p><input class="myButton" type="submit" value="Sign Up"></p>
+	     </form>
+	    </div>
+	  </section>
+	</body>
+</html>
+
+<table>
+<tr>
+<% @list.each do |user| %>
+<tr>
+	<td><%= user.email %></td>
+	<td><%= user.password %></td>
+	<td><%= user.id %></td>
+	<% end %>
+</table>
