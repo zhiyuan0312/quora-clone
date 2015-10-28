@@ -8,7 +8,7 @@ get '/' do
 end
 
 post '/' do
-	erb :"static/index"
+	redirect :"static/index"
 end
 
 get '/main' do

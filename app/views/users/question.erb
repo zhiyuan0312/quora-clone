@@ -1,0 +1,10 @@
+<h1>Questions asked</h1>
+	<table>
+		<% @question.each do |question| %>
+			<tr>
+				<td>
+					<%= question.question_text %>
+				</td>
+			</tr>
+			<% end %>
+	</table>

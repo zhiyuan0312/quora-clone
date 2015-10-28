@@ -1,0 +1,10 @@
+<h1>Answers given</h1>
+	<table>
+		<% @answer.each do |answer| %>
+			<tr>
+				<td>
+					<%= answer.answer_text %>
+				</td>
+			</tr>
+			<% end %>
+	</table>

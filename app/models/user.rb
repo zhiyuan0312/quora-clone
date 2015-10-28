@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	#e.g., User.authenticate('zen@hotmail.com','ilovecoding')
-
+	has_many :questions
+	has_many :answers
+	
     validates :email, uniqueness: true, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 
 	def self.authenticate(email, password)

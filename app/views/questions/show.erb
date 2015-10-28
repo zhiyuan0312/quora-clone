@@ -1,0 +1,9 @@
+<h3>Question:</h3>
+
+<p><%= @question.question_text %></p>
+
+	<form method="post" action="/questions/<%= @question.id %>/answers/">
+		<textarea rows='4' cols='50' type="text" name="answer">
+		</textarea>
+		<p><input class="myButton" type="submit" value="Submit Answer"></p>
+	</form>

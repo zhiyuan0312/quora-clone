@@ -1,9 +1,23 @@
+require 'byebug'
+
 get '/users/:id' do
 	@error = "user id page" + " " + params[:id]
 end
 
+get '/users/:user_id/questions/' do
+	#find all questions by specific user
+	@question = Question.where(user_id: params[:user_id])
+	erb :"/users/question"
+end
+
+get '/users/:user_id/answers/' do
+	#find all answers by specific user
+	@answer = Answer.where(user_id: params[:user_id])
+	erb :"/users/answer"
+end
+
 get '/new_user' do
-	erb :"new_user"
+	erb :"/users/new"
 end
 
 post '/login' do
