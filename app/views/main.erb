@@ -1,23 +1,36 @@
 
-	  <section class="container">
 	    <div class="welcome">
-	      <h1>Welcome to Quora Clone!</h1>
+	      <h1 id="login_title">Welcome to Quora Clone!</h1>
 	    </div>
-	   	<form method="post" action="/logout">
-	     	<p><input class="myButton" type="submit" value="Log Out"></p>
-	     </form>
-	  </section>
-	  	<form method="get" action="/questions/new">
-	  		<p><input class="myButton" type="submit" value="New Question"></p>
-	  	</form>
-	  	<form method="get" action="/questions"
-	  		<p><input class="myButton" type="submit" value="Display ALL Questions & Answers"></p>
-	  	</form>
 
-	  	<form method="get" action="/users/<%= session[:user_id] %>/questions/">
-	  		<p><input class="myButton" type="submit" value="My Questions"></p>
-	  	</form>
+	    <div class="row">
 
-	  	<form method="get" action="/users/<%= session[:user_id] %>/answers/">
-	  		<p><input class="myButton" type="submit" value="My Answers"></p>
-	  	</form>
+	    	<div class="col-sm-2">
+	   			<form method="post" action="/logout">
+	     			<p><input class="myButton" type="submit" value="Log Out"></p>
+	     		</form>
+	   		</div>
+
+	   		<div class="col-sm-2">
+	  			<form method="get" action="/questions/new">
+	  				<p><input class="myButton" type="submit" value="	New Question"></p>
+	 	 			</form>
+	  		</div>
+
+	  		<div class="col-sm-3">
+	  			<form method="get" action="/questions">
+	  				<p><input class="myButton" type="submit" value="Display ALL Questions & Answers"></p>
+	  			</form>
+	  		</div>
+
+				<div class="col-sm-2">
+	  			<form method="get" action="/users/<%= session[:user_id] %>/questions/">
+	  				<p><input class="myButton" type="submit" value="My Questions"></p>
+	  			</form>
+	  		</div>
+
+	  		<div class="col-sm-2">
+	  			<form method="get" action="/users/<%= session[:user_id] %>/answers/">
+	  				<p><input class="myButton" type="submit" value="My Answers"></p>
+	  			</form>
+	 		 </div>

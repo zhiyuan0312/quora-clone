@@ -1,14 +1,33 @@
-<section class="container">
+
   <div class="display_questions">
     <h1>Display Questions & Answers</h1>
     	<h4>Click on question to add new answers</h2>
   	<table>
+
       <% @questions.each do |question| %>
 		    <tr>
 			    <td>
 			    	<a href="/questions/<%= question.id %>">
 				    	<%= question.question_text %>
 				    </a>
+
+
+				    Votes: <%= question.question_votes.count %>
+
+
+				    <form method="post" action="/questions/<%= question.id %>/vote">
+				    	<input class="myButton" type="submit" value="up vote">
+				    </form>
+
+				    <% if question.question_votes.find_by(user_id: session['user_id']) %>
+					    <form method="post" action="/questions/<%= question.id %>/vote/<%=question.question_votes.find_by(user_id: session['user_id']).id%>">
+					    	<input type="hidden" name="_method" value="delete">
+					    	<input class="myButton" type="submit" value="down vote">
+					    </form>
+					    <% end%>
+
+					    <form method="get" action="/questions/<%= question.id %>/edit">
+					    	<input class="myButton" type="submit" value="edit">
 			    </td>
 			  </tr>
 
@@ -23,27 +42,5 @@
 	    <% end %>
 		</table>
   </div>
-</section>
 
-<!-- Example using list
-=================== -->
-<!--   <div class="display_questions">
-    <h1>Display Questions & Answers</h1>
-  	<ul>
-      <% @questions.each do |question| %>
-		   		<li>
-			    	<a href="/questions/<%= question.id %>">
-				    	<%= question.question_text %>
-				    </a>
-			    </li>
-
-				<% question.answers.each do |answer| %>
-					<li>
-							<%= answer.answer_text %>
-					</li>
-				<% end %>
-
-	    <% end %>
-		</ul>
-  </div> -->
 

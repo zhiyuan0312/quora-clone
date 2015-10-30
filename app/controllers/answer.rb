@@ -7,7 +7,7 @@ end
 
 #CREATE
 post '/questions/:ques_id/answers/' do
-	@answer = Answer.create(answer_text: params[:answer], user_id: session[:user_id], question_id: params[:ques_id])
+	@answer = Answer.create(answer_text: params[:answer], user_id: current_user.id, question_id: params[:ques_id])
 	redirect :"/questions"
 end
 
